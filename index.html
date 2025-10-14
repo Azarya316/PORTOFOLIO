@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio - Azarya Noel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- Ajoutez cette ligne -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <a href="#" class="logo">Portfolio.</a>
+
+      <nav class="navbar">
+        <a href="#home" class="active">Accueil</a>
+        <a href="#about">À Propos</a>
+        <a href="#services">Services</a>
+        <a href="#portofolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="fas fa-moon" id="darkMode-icon"></div>
+      <div class="fas fa-bars" id="menu-icon"></div>
+    </header>
+
+    <section class="home" id="home">
+      <div class="home-content">
+        <h3>Bonjour ! Je suis</h3>
+        <h1>Azarya Noel</h1>
+        <p>
+          <strong class="important">Développeur web et mobile passionné.</strong>
+          Je conçois des sites web sur mesure, adaptés à vos besoins, en
+          exploitant les dernières technologies et en mettant l'accent sur le
+          <strong class="important">design et l'expérience utilisateur.</strong><br /><br />
+
+          Que ce soit pour un <strong>site vitrine</strong>, un
+          <strong>E-commerce</strong>, ou un blog, je transforme vos idées en
+          <strong class="important">réalité numérique.</strong>
+        </p>
+
+        <div class="social-media">
+          <a href="https://facebook.com/Ambinintsoa316" target="_blank"><i class="fab fa-facebook"></i></a>
+          <a href="https://twitter.com/Ambinintsoa316" target="_blank"><i class="fab fa-twitter"></i></a>
+          <a href="https://instagram.com/Ambinintsoa316" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://linkedin.com/in/rasolomampionona-azarya" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+
+        <a href="doc/cv.pdf" class="btn">Télécharger CV</a>
+      </div>
+
+      <div class="profession-container">
+        <div class="profession-box">
+          <div class="profession" style="--i: 0"></div>
+          <div class="profession" style="--i: 1"></div>
+          <div class="profession" style="--i: 2"></div>
+          <div class="profession" style="--i: 3"></div>
+          <div class="circle"></div>
+        </div>
+        <div class="overlay"></div>
+      </div>
+
+      <div class="home-img">
+        <img src="images/2853.jpg" alt="Azarya Noel" class="profile-img" />
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="about-img">
+        <img src="images/2853.jpg" alt="Azarya Noel" class="about-profile-img" />
+      </div>
+
+      <div class="about-content">
+        <h2 class="heading">À Propos <span>de Moi</span></h2>
+        <h3>Développeur Web & Mobile</h3>
+        <p>
+          Je m'appelle <strong>RASOLOMAMPIONONA Azarya</strong>, étudiant en
+          troisième année de licence professionnelle en Génie Logiciel et Base
+          de données à l'École Nationale de l'Informatique de Fianarantsoa.
+          <br /><br />
+          Passionné par le <strong>développement web et mobile</strong>, je maîtrise les langages
+          et frameworks tels que <strong>JavaScript, PHP, C#, React JS, Angular, Laravel , TypeScript, Java et Python</strong>.
+          <br /><br />
+          Autodidacte et motivé, je suis constamment à la recherche de nouveaux défis
+          pour améliorer mes compétences et créer des solutions innovantes.
+        </p>
+        <a href="#contact" class="btn">Me Contacter</a>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <h2 class="heading">Mes <span>Services</span></h2>
+
+      <div class="services-container">
+        <div class="services-box">
+          <i class="fas fa-code"></i>
+          <h3>Développement Web</h3>
+          <p>
+            Création de sites web modernes et responsives avec les dernières technologies.
+            Je développe des applications web performantes utilisant React, Angular, Laravel et PHP
+            pour répondre à vos besoins spécifiques, du site vitrine à l'application e-commerce complexe.
+          </p>
+          <a href="#contact" class="btn">En Savoir Plus</a>
+        </div>
+        <div class="services-box">
+          <i class="fas fa-mobile-screen"></i>
+          <h3>Développement Mobile</h3>
+          <p>
+            Développement d'applications mobiles natives et hybrides pour Android et iOS.
+            Je crée des expériences utilisateur fluides et intuitives qui fonctionnent
+            parfaitement sur tous les appareils mobiles avec des technologies modernes.
+          </p>
+          <a href="#contact" class="btn">En Savoir Plus</a>
+        </div>
+        <div class="services-box">
+          <i class="fas fa-palette"></i>
+          <h3>Design Web</h3>
+          <p>
+            Conception d'interfaces utilisateur attrayantes et ergonomiques.
+            Je combine créativité et fonctionnalité pour créer des designs modernes
+            qui captivent vos visiteurs et améliorent l'expérience utilisateur globale de votre plateforme.
+          </p>
+          <a href="#contact" class="btn">En Savoir Plus</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="portofolio" id="portofolio">
+      <h2 class="heading">Derniers <span>Projets</span></h2>
+
+      <div class="portofolio-container">
+        <div class="portofolio-box">
+          <img src="images/chordo.png" alt="Chordo - Application Musicale" />
+          <div class="portofolio-layer">
+            <h4>Chordo</h4>
+            <p>
+              Application musicale innovante pour détecter les notes de musique et afficher les accords en temps réel.
+              Développée avec React et Node.js pour une expérience interactive.
+            </p>
+            <a href="#"><i class="fas fa-external-link"></i></a>
+          </div>
+        </div>
+        <div class="portofolio-box">
+          <img src="images/Logo _Konekta Mobile.png" alt="Konekta Mobile - Application Chat" />
+          <div class="portofolio-layer">
+            <h4>Konekta Mobile</h4>
+            <p>
+              Application de messagerie instantanée pour faciliter la communication.
+              Solution complète développée avec React et Node.js pour des échanges fluides et sécurisés.
+            </p>
+            <a href="#"><i class="fas fa-external-link"></i></a>
+          </div>
+        </div>
+        <div class="portofolio-box">
+          <img src="images/mobicash2.png" alt="MobiCash - Mobile Money" />
+          <div class="portofolio-layer">
+            <h4>MobiCash</h4>
+            <p>
+              Application de mobile money robuste développée en Java avec le framework JSP.
+              Système complet de transfert d'argent, paiements et gestion de portefeuille électronique.
+            </p>
+            <a href="#"><i class="fas fa-external-link"></i></a>
+          </div>
+        </div>
+        <div class="portofolio-box">
+          <img src="images/e-vanga.png" alt="E-Vanga - E-commerce" />
+          <div class="portofolio-layer">
+            <h4>E-Vanga</h4>
+            <p>
+              Plateforme e-commerce moderne et intuitive développée avec React et Node.js.
+              Interface élégante avec gestion des produits, panier, paiements et suivi des commandes.
+            </p>
+            <a href="#"><i class="fas fa-external-link"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <h2 class="heading">Contactez <span>Moi !</span></h2>
+
+      <form action="#" id="contactForm">
+        <div class="input-box">
+          <input type="text" name="name" placeholder="Nom Complet" required />
+          <input type="email" name="email" placeholder="Adresse Email" required />
+        </div>
+        <div class="input-box">
+          <input type="tel" name="phone" placeholder="Numéro Mobile" required />
+          <input type="text" name="subject" placeholder="Objet de l'Email" required />
+        </div>
+        <textarea
+          name="message"
+          id="message"
+          cols="30"
+          rows="10"
+          placeholder="Votre Message"
+          required
+        ></textarea>
+        <input type="submit" value="Envoyer le Message" class="btn" />
+      </form>
+
+      <div style="margin-top: 40px; text-align: center;">
+        <p style="font-size: 1.8rem; margin-bottom: 15px;">
+          <i class="fas fa-envelope" style="color: var(--main-color); margin-right: 10px;"></i>
+          <a href="mailto:rasolomampiononaaza@gmail.com" style="color: var(--main-color); text-decoration: none;">
+            rasolomampiononaaza@gmail.com
+          </a>
+        </p>
+        <p style="font-size: 1.8rem; margin-bottom: 15px;">
+          <i class="fas fa-phone" style="color: var(--main-color); margin-right: 10px;"></i>
+          <a href="tel:+261345083965" style="color: var(--main-color); text-decoration: none;">
+            034 50 839 65
+          </a>
+        </p>
+        <p style="font-size: 1.8rem;">
+          <i class="fas fa-map-marker-alt" style="color: var(--main-color); margin-right: 10px;"></i>
+          Atampon'Ivory, Fianarantsoa, Madagascar
+        </p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-text">
+        <p>Copyright &copy; 2025 par Azarya | Tous droits réservés</p>
+      </div>
+
+      <div class="footer-iconTop">
+        <a href="#home"><i class="fas fa-arrow-up"></i></a>
+      </div>
+    </footer>
+
+    <script src="js/srcipt.js"></script>
+  </body>
+</html>
