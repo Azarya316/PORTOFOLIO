@@ -220,8 +220,18 @@ contactForm.addEventListener("submit", function (e) {
       function (response) {
         console.log("SUCCESS!", response.status, response.text);
 
-        // Afficher un message de succès
-        alert("✅ Votre message a été envoyé avec succès ! Je vous répondrai bientôt.");
+        // Afficher un message de succès avec SweetAlert2
+        Swal.fire({
+          icon: 'success',
+          title: 'Message envoyé !',
+          text: 'Votre message a été envoyé avec succès ! Je vous répondrai bientôt.',
+          confirmButtonText: 'D\'accord',
+          confirmButtonColor: '#0ef',
+          background: document.body.classList.contains('dark-mode') ? '#1f242d' : '#fff',
+          color: document.body.classList.contains('dark-mode') ? '#fff' : '#000',
+          timer: 5000,
+          timerProgressBar: true
+        });
 
         // Réinitialiser le formulaire
         contactForm.reset();
@@ -233,10 +243,16 @@ contactForm.addEventListener("submit", function (e) {
       function (error) {
         console.error("FAILED...", error);
 
-        // Afficher un message d'erreur
-        alert(
-          "❌ Erreur lors de l'envoi du message. Veuillez réessayer ou me contacter directement à rasolomampiononaaza@gmail.com"
-        );
+        // Afficher un message d'erreur avec SweetAlert2
+        Swal.fire({
+          icon: 'error',
+          title: 'Erreur d\'envoi',
+          text: 'Erreur lors de l\'envoi du message. Veuillez réessayer ou me contacter directement à rasolomampiononaaza@gmail.com',
+          confirmButtonText: 'Réessayer',
+          confirmButtonColor: '#0ef',
+          background: document.body.classList.contains('dark-mode') ? '#1f242d' : '#fff',
+          color: document.body.classList.contains('dark-mode') ? '#fff' : '#000'
+        });
 
         // Restaurer le bouton
         submitBtn.value = originalBtnText;

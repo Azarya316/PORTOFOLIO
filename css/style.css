@@ -38,6 +38,7 @@
 .important {
   color: var(--main-color);
 }
+
 html {
   font-size: 62.5%;
   overflow-x: hidden;
@@ -46,8 +47,10 @@ html {
 body {
   background: var(--bg-color);
   color: var(--text-color);
+  overflow-x: hidden;
 }
 
+/* ===== HEADER ===== */
 .header {
   position: fixed;
   top: 0;
@@ -110,12 +113,17 @@ body {
   font-size: 2.4rem;
   color: var(--white-color);
   cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
-/* Couleur des liens et icône sur header transparent */
+#darkMode-icon:hover {
+  transform: scale(1.1);
+}
+
 .header:not(.sticky) .navbar a {
   color: var(--white-color);
 }
+
 .header:not(.sticky) #darkMode-icon {
   color: var(--white-color);
 }
@@ -129,13 +137,16 @@ body {
   font-size: 3.6rem;
   color: var(--text-color);
   display: none;
+  cursor: pointer;
 }
 
+/* ===== SECTIONS ===== */
 section {
   min-height: 100vh;
   padding: 10rem 7% 2rem;
 }
 
+/* ===== HOME SECTION ===== */
 .home {
   display: flex;
   align-items: center;
@@ -156,16 +167,19 @@ section {
   font-size: 3.2rem;
   font-weight: 700;
   line-height: 0.3;
+  animation: fadeInUp 1.5s ease 0.3s both;
 }
 
 .home-content h1 {
   font-size: 5.6rem;
   font-weight: 700;
   margin-bottom: 0.3rem;
+  animation: fadeInUp 1.5s ease 0.5s both;
 }
 
 .home-content p {
   font-size: 1.6rem;
+  animation: fadeInUp 1.5s ease 0.7s both;
 }
 
 .home-content .social-media a {
@@ -181,12 +195,13 @@ section {
   font-size: 2rem;
   color: var(--main-color);
   margin: 2.5rem 1.5rem 3rem 0;
-  transition: 0.5s ease;
+  transition: all 0.3s ease;
 }
 
 .home-content .social-media a:hover {
   background: var(--main-color);
   color: var(--white-color);
+  transform: translateY(-3px) rotate(360deg);
 }
 
 .btn {
@@ -200,14 +215,33 @@ section {
   letter-spacing: 0.1rem;
   font-weight: 600;
   border: 0.2rem solid transparent;
-  transition: 0.5s ease;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn:hover::before {
+  left: 100%;
 }
 
 .btn:hover {
   background: transparent;
   color: var(--main-color);
+  border-color: var(--main-color);
 }
 
+/* ===== PROFESSION CONTAINER ===== */
 .home .profession-container {
   position: absolute;
   top: 50%;
@@ -246,15 +280,6 @@ section {
   padding: 13px 0;
 }
 
-.home .profession-box .profession:nth-child(1) i {
-  margin-right: 15px;
-}
-
-.home .profession-box .profession:nth-child(2),
-.home .profession-box .profession:nth-child(4) {
-  padding-bottom: 20px;
-}
-
 .home .profession i {
   font-size: 3.8rem;
 }
@@ -270,6 +295,16 @@ section {
   height: 560px;
   border: 3px solid var(--main-color);
   border-radius: 50%;
+  animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .home .profession-container .overlay {
@@ -284,6 +319,7 @@ section {
   border-left: 384px solid transparent;
 }
 
+/* ===== HOME IMAGE ===== */
 .home-img {
   position: relative;
   right: 0;
@@ -309,11 +345,6 @@ section {
   box-shadow: 0 0 30px rgba(117, 78, 249, 0.25);
 }
 
-/* Désactive l'ancien avant sur l'image si présent */
-.home-img::before {
-  content: none;
-}
-
 .home-img .profile-img {
   width: 300px;
   height: 300px;
@@ -331,24 +362,7 @@ section {
   box-shadow: 0 0 30px rgba(117, 78, 249, 0.5);
 }
 
-.home-img .profile-title {
-  position: absolute;
-  bottom: 50px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: var(--white-color);
-  font-size: 1.8rem;
-  font-weight: 600;
-  text-align: center;
-  z-index: 3;
-}
-
-.home-img .profile-title span {
-  color: var(--white-color);
-  font-weight: 700;
-  margin-right: 0.5rem;
-}
-
+/* ===== ABOUT SECTION ===== */
 span {
   color: var(--main-color);
 }
@@ -400,6 +414,7 @@ span {
   margin: 2rem 0 3rem;
 }
 
+/* ===== SERVICES SECTION ===== */
 .services {
   min-height: auto;
   padding: 7rem;
@@ -426,13 +441,14 @@ span {
   text-align: center;
   border-top: 0.6rem solid var(--main-color);
   border-bottom: 0.6rem solid var(--main-color);
-  transition: 0.5s ease;
+  transition: all 0.4s ease;
 }
 
 .services-container .services-box:hover {
   box-shadow: 0 0.1rem 2rem var(--shadow-color);
-  transform: scale(1.02);
+  transform: translateY(-10px) scale(1.02);
 }
+
 .services-box i {
   font-size: 7rem;
   color: var(--main-color);
@@ -452,6 +468,7 @@ span {
   margin: 1rem 0 3rem;
 }
 
+/* ===== PORTFOLIO SECTION ===== */
 .portofolio {
   padding-bottom: 10rem;
 }
@@ -473,6 +490,11 @@ span {
   border-radius: 2rem;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.portofolio-box:hover {
+  transform: translateY(-5px);
 }
 
 .portofolio-box img {
@@ -530,52 +552,7 @@ span {
   color: #333;
 }
 
-.testimonial-container {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  padding: 5rem 1rem;
-}
-
-.testimonial-container .testimonial-wrapper {
-  position: relative;
-  max-width: 90rem;
-  width: 100%;
-  padding: 5rem;
-}
-
-.testimonial-container .testimonial-slide {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  background: var(--bg-color);
-  border-radius: 2rem;
-  box-shadow: 0 0.1rem 0.5rem var(--shadow-color);
-  padding: 3rem 5rem;
-  border-top: 0.8rem solid var(--main-color);
-  border-bottom: 0.8rem solid var(--main-color);
-}
-
-.testimonial-slide img {
-  width: 14rem;
-  height: 14rem;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 0.5rem solid var(--bg-color);
-  outline: 0.5rem solid var(--main-color);
-}
-
-.testimonial-slide h3 {
-  font-size: 2.5rem;
-  margin: 2rem 0;
-}
-
-.testimonial-slide p {
-  font-size: 1.4rem;
-  text-align: center;
-}
-
+/* ===== CONTACT SECTION ===== */
 .contact h2 {
   margin-bottom: 3rem;
 }
@@ -603,6 +580,13 @@ span {
   border-radius: 0.8rem;
   margin: 0.7rem 0;
   box-shadow: 0 0.1rem 0.5rem var(--shadow-color);
+  transition: all 0.3s ease;
+}
+
+.contact form .input-box input:focus,
+.contact form textarea:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(117, 78, 249, 0.3);
 }
 
 .contact form .input-box input {
@@ -618,6 +602,7 @@ span {
   cursor: pointer;
 }
 
+/* ===== FOOTER ===== */
 .footer {
   display: flex;
   justify-content: space-between;
@@ -641,11 +626,12 @@ span {
   border-radius: 0.8rem;
   border: 0.2rem solid var(--main-color);
   outline: 0.2rem solid transparent;
-  transition: 0.5s ease;
+  transition: all 0.3s ease;
 }
 
 .footer-iconTop a:hover {
   outline-color: var(--white-color);
+  transform: translateY(-5px);
 }
 
 .footer-iconTop a i {
@@ -653,7 +639,19 @@ span {
   color: #333;
 }
 
-/*BREAKPOINTS*/
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== RESPONSIVE BREAKPOINTS ===== */
 @media (max-width: 1200px) {
   html {
     font-size: 55%;
@@ -663,12 +661,12 @@ span {
     height: 85.8rem;
   }
 
-  .home .proffession-container .proffession-box {
+  .home .profession-container .profession-box {
     right: -12rem;
     height: 85.8rem;
   }
 
-  .home .proffession-container .overlay {
+  .home .profession-container .overlay {
     right: -9rem;
   }
 }
@@ -692,15 +690,6 @@ span {
 }
 
 @media (max-width: 991px) {
-  .navbar a:nth-child(1),
-  .navbar a:nth-child(2) {
-    color: var(--main-color);
-  }
-
-  .navbar a.actvive::beafor {
-    background: var(--main-color);
-    opacity: 0.7;
-  }
   .home .home-content {
     max-width: 50rem;
   }
@@ -732,58 +721,79 @@ span {
   }
 }
 
+/* ===== MOBILE STYLES ===== */
 @media (max-width: 768px) {
   #menu-icon {
     display: block;
+    color: var(--white-color);
+    z-index: 101;
+  }
+
+  .header.sticky #menu-icon {
+    color: var(--text-color);
   }
 
   #darkMode-icon {
     position: absolute;
     right: 7rem;
     font-size: 2.6rem;
-    color: var(--text-color);
+    color: var(--white-color);
     margin-bottom: 0.1rem;
+    z-index: 101;
+  }
+
+  .header.sticky #darkMode-icon {
+    color: var(--text-color);
   }
 
   .navbar {
-    position: absolute;
-    top: 100%;
-    left: 0;
+    position: fixed;
+    top: 0;
+    left: -100%;
     width: 100%;
-    padding: 1rem 3%;
+    height: 100vh;
+    padding: 10rem 3% 2rem;
     background: var(--bg-color);
-    border-top: 0.1rem solid rgba(0, 0, 0, 0.2);
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-    /* display: none; */
+    border-right: 0.2rem solid var(--main-color);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: left 0.4s ease;
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
   }
 
   .navbar.active {
-    display: block;
+    left: 0;
   }
 
   .navbar a {
     display: block;
     font-size: 2rem;
-    margin: 3rem 0;
+    margin: 2rem 0;
     color: var(--text-color);
-  }
-
-  .navbar a:nth-child(1),
-  .navbar a:nth-child(2) {
-    color: var(--text-color);
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(117, 78, 249, 0.2);
   }
 
   .navbar a.active {
     color: var(--main-color);
   }
+
   .navbar a::before {
     display: none;
   }
 
   .home {
-    padding: 0 3% 23rem;
+    padding: 0 3% 30rem;
     justify-content: center;
     text-align: center;
+    flex-direction: column;
+  }
+
+  .home .home-content {
+    max-width: 100%;
+    padding-right: 0;
   }
 
   .home-content h3 {
@@ -798,60 +808,49 @@ span {
     margin: 2.5rem 0.75rem 3rem;
   }
 
+  .home::before {
+    display: none;
+  }
+
   .home .profession-container {
+    position: absolute;
     left: 0;
+    right: 0;
     width: 100%;
-    height: 100%;
+    height: auto;
+    top: auto;
+    bottom: 5rem;
+    transform: none;
   }
 
   .home .profession-container .profession-box {
-    position: fixed;
-    top: 60%;
-    left: 0;
-    border-radius: 0;
-    width: 100%;
-  }
-
-  .home .profession-container .profession {
-    padding: 0 13px;
-    left: auto;
-    transform-origin: 0;
-  }
-
-  .home .profession-container .profession:nth-child(1) {
-    transform: rotate(-90deg) translate(-120px, -210px);
-  }
-
-  .home .profession-container .profession:nth-child(1) i {
-    margin-right: 0;
-  }
-
-  .home .profession-container .profession:nth-child(2) {
-    transform: rotate(0deg) translate(0, -335px);
-  }
-
-  .home .profession-container .profession:nth-child(3) {
-    transform: rotate(90deg) translate(-115px, -450px);
-  }
-
-  .home .profession-container .profession:nth-child(4) {
-    transform: rotate(180deg) translate(-220px, -335px);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 300px;
   }
 
   .home .profession-box .circle {
-    position: fixed;
-    width: 670px;
-    height: 670px;
-    z-index: -1;
+    width: 300px;
+    height: 300px;
+  }
+
+  .home .profession-box .profession {
+    transform-origin: 150px;
+  }
+
+  .home .profession i {
+    font-size: 2.5rem;
+  }
+
+  .home .profession h3 {
+    font-size: 1.8rem;
   }
 
   .home .profession-container .overlay {
-    position: fixed;
-    top: 70rem;
-    left: 50%;
-    right: 0;
-    transform: rotate(90deg) translate(-50%, 50%) scaleY(3);
-    border-width: 23.9rem;
+    display: none;
   }
 
   .about {
@@ -866,7 +865,11 @@ span {
   .about-img .about-profile-img {
     width: 250px;
     height: 250px;
-    margin-top: -2rem;
+    margin-top: 2rem;
+  }
+
+  .services {
+    padding: 5rem 3%;
   }
 
   .services h2,
@@ -876,14 +879,7 @@ span {
 
   .portofolio .portofolio-container {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .testimonial-container .testimonial-wrapper {
-    padding: 5rem 0;
-  }
-
-  .testimonial-content .testimonial-slide {
-    padding: 3rem 2rem;
+    gap: 2rem;
   }
 }
 
@@ -893,7 +889,7 @@ span {
   }
 }
 
-@media (max-width: 617px) {
+@media (max-width: 520px) {
   html {
     font-size: 50%;
   }
@@ -903,23 +899,21 @@ span {
   }
 
   .home {
-    padding: 0 3% 30rem;
+    padding: 0 3% 35rem;
   }
 
-  .home .profession-box .profession:nth-child(1) {
-    transform: rotate(-90deg) translate(-110px, -220px);
+  .home .profession-container .profession-box {
+    width: 280px;
+    height: 280px;
   }
 
-  .home .profession-box .profession:nth-child(2) {
-    transform: rotate(0deg) translate(5px, -335px);
+  .home .profession-box .circle {
+    width: 280px;
+    height: 280px;
   }
 
-  .home .profession-box .profession:nth-child(3) {
-    transform: rotate(90deg) translate(-105px, -440px);
-  }
-
-  .home .profession-box .profession:nth-child(4) {
-    transform: rotate(180deg) translate(-210px, -335px);
+  .home .profession-box .profession {
+    transform-origin: 140px;
   }
 
   .contact form .input-box input {
@@ -941,344 +935,18 @@ span {
     text-align: center;
     margin-top: 2rem;
   }
-}
 
-/* ===== ANIMATIONS ===== */
-
-/* Animation d'entrée pour le header */
-.header {
-  opacity: 0;
-  transform: translateY(-20px);
-  transition: all 0.8s ease;
-}
-
-.header.animate-in {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Animation d'entrée pour les éléments au scroll */
-.home-content,
-.about-content,
-.services-box,
-.portofolio-box,
-.testimonial-slide {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s ease;
-}
-
-.animate-in {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Animation de l'icône du mode sombre */
-#darkMode-icon {
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-#darkMode-icon:hover {
-  transform: scale(1.1);
-}
-
-/* Animation des boutons */
-.btn {
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.btn::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.2),
-    transparent
-  );
-  transition: left 0.5s;
-}
-
-.btn:hover::before {
-  left: 100%;
-}
-
-/* Animation des cartes de services */
-.services-box {
-  transition: all 0.4s ease;
-}
-
-.services-box:hover {
-  transform: translateY(-10px) scale(1.02);
-}
-
-/* Animation des projets portfolio */
-.portofolio-box {
-  transition: all 0.4s ease;
-}
-
-.portofolio-box:hover {
-  transform: translateY(-5px);
-}
-
-/* Animation du menu mobile */
-.navbar {
-  transition: all 0.4s ease;
-}
-
-.navbar.active {
-  animation: slideIn 0.4s ease forwards;
-}
-
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateX(-100%);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* Animation des liens de navigation */
-.navbar a {
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.navbar a::after {
-  content: "";
-  position: absolute;
-  bottom: -5px;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background: var(--main-color);
-  transition: all 0.3s ease;
-  transform: translateX(-50%);
-}
-
-.navbar a:hover::after {
-  width: 100%;
-}
-
-/* Animation des icônes sociales */
-.social-media a {
-  transition: all 0.3s ease;
-}
-
-.social-media a:hover {
-  transform: translateY(-3px) rotate(360deg);
-}
-
-/* Animation des professions */
-.profession {
-  transition: all 0.5s ease;
-}
-
-.profession:hover {
-  transform: scale(1.05);
-}
-
-/* Animation du cercle rotatif */
-.circle {
-  animation: rotate 20s linear infinite;
-}
-
-@keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* Animation des images */
-.about-img img,
-.portofolio-box img {
-  transition: all 0.4s ease;
-}
-
-.about-img img:hover,
-.portofolio-box img:hover {
-  transform: scale(1.05);
-}
-
-/* Animation des formulaires */
-.contact form input,
-.contact form textarea {
-  transition: all 0.3s ease;
-}
-
-.contact form input:focus,
-.contact form textarea:focus {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(117, 78, 249, 0.3);
-}
-
-/* Animation du footer */
-.footer-iconTop a {
-  transition: all 0.3s ease;
-}
-
-.footer-iconTop a:hover {
-  transform: translateY(-5px);
-}
-
-/* Animation de la transition du mode sombre */
-body,
-.header,
-.navbar a,
-#darkMode-icon,
-.services-box,
-.portofolio-box,
-.testimonial-slide,
-.contact form input,
-.contact form textarea {
-  transition: background-color 0.5s ease, color 0.5s ease,
-    border-color 0.5s ease, box-shadow 0.5s ease;
-}
-
-/* Animation d'apparition progressive des sections */
-section {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 1s ease;
-}
-
-section.animate-in {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Animation spéciale pour le titre principal */
-.home-content h1 {
-  animation: fadeInUp 1.5s ease 0.5s both;
-}
-
-.home-content h3 {
-  animation: fadeInUp 1.5s ease 0.3s both;
-}
-
-.home-content p {
-  animation: fadeInUp 1.5s ease 0.7s both;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Animation de pulsation pour les éléments importants */
-.logo {
-  animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-}
-
-/* Styles responsifs pour les images de profil */
-@media (max-width: 768px) {
-  .home-img {
-    width: 300px;
-    height: 400px;
-  }
-
-  .home-img::before {
-    width: 350px;
-    height: 450px;
-    right: -50px;
-  }
-
-  .home-img .profile-img {
-    width: 200px;
-    height: 200px;
-  }
-
-  .home-img .profile-title {
-    font-size: 1.5rem;
-    bottom: 30px;
-  }
-
-  .about-img .about-profile-img {
-    width: 200px;
-    height: 200px;
-  }
-}
-
-@media (max-width: 480px) {
-  .home-img {
+  .home .profession-container .profession-box {
     width: 250px;
-    height: 350px;
+    height: 250px;
   }
 
-  .home-img::before {
-    width: 300px;
-    height: 400px;
-    right: -30px;
-  }
-
-  .home-img .profile-img {
-    width: 180px;
-    height: 180px;
-  }
-
-  .home-img .profile-title {
-    font-size: 1.3rem;
-    bottom: 25px;
-  }
-
-  .about-img .about-profile-img {
-    width: 180px;
-    height: 180px;
-  }
-}
-
-@media (max-width: 365px) {
-  .home-img {
-    width: 200px;
-    height: 300px;
-  }
-
-  .home-img::before {
+  .home .profession-box .circle {
     width: 250px;
-    height: 350px;
-    right: -20px;
+    height: 250px;
   }
 
-  .home-img .profile-img {
-    width: 150px;
-    height: 150px;
-  }
-
-  .home-img .profile-title {
-    font-size: 1.2rem;
-    bottom: 20px;
-  }
-
-  .about-img .about-profile-img {
-    width: 150px;
-    height: 150px;
+  .home .profession-box .profession {
+    transform-origin: 125px;
   }
 }
