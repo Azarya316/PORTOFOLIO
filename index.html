@@ -33,8 +33,8 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 1rem;
-        width: 14rem;
+        gap: 0.8rem;
+        width: 15rem;
         transition: 0.3s ease;
         box-shadow: 0 0 0 transparent;
         position: relative;
@@ -60,7 +60,7 @@
         box-shadow: 0 0 20px var(--main-color);
       }
 
-      .skill-card i {
+      .skill-card i.tech-icon {
         font-size: 3.5rem;
         color: var(--main-color);
       }
@@ -69,23 +69,28 @@
         width: 3.5rem;
         height: 3.5rem;
         object-fit: contain;
-        filter: grayscale(0.1);
       }
 
-      .skill-card span {
+      .skill-card .skill-name {
         font-size: 1.5rem;
         font-weight: 600;
         color: var(--text-color);
         text-align: center;
       }
 
-      .skill-badge {
-        font-size: 1rem;
-        padding: 0.3rem 0.9rem;
-        background: var(--main-color);
-        color: #fff;
-        border-radius: 2rem;
-        font-weight: 500;
+      /* Étoiles */
+      .skill-stars {
+        display: flex;
+        gap: 0.25rem;
+      }
+
+      .skill-stars i {
+        font-size: 1.2rem;
+        color: var(--main-color);
+      }
+
+      .skill-stars i.empty {
+        color: #555;
       }
     </style>
   </head>
@@ -122,10 +127,10 @@
         </p>
 
         <div class="social-media">
-          <a href="https://facebook.com/Ambinintsoa316" target="_blank"><i class="fab fa-facebook"></i></a>
+          <a href="https://web.facebook.com/nou.ma.7587" target="_blank"><i class="fab fa-facebook"></i></a>
           <a href="https://twitter.com/Ambinintsoa316" target="_blank"><i class="fab fa-twitter"></i></a>
           <a href="https://instagram.com/Ambinintsoa316" target="_blank"><i class="fab fa-instagram"></i></a>
-          <a href="https://linkedin.com/in/rasolomampionona-azarya" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://www.linkedin.com/in/azarya-rasolomanpionona-250221318/" target="_blank"><i class="fab fa-linkedin"></i></a>
         </div>
 
         <a href="doc/maj_cv.pdf" class="btn">Télécharger CV</a>
@@ -177,76 +182,100 @@
 
       <div class="skills-container">
 
+        <!-- FAVORIS : 5 étoiles -->
         <div class="skill-card">
-          <i class="fab fa-react"></i>
-          <span>React JS</span>
-          <span class="skill-badge">Favori</span>
+          <i class="fab fa-react tech-icon"></i>
+          <span class="skill-name">React JS</span>
+          <div class="skill-stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
         </div>
 
         <div class="skill-card">
-          <i class="fab fa-node-js"></i>
-          <span>Node.js</span>
-          <span class="skill-badge">Favori</span>
+          <i class="fab fa-node-js tech-icon"></i>
+          <span class="skill-name">Node.js</span>
+          <div class="skill-stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
         </div>
 
         <div class="skill-card">
-          <i class="fab fa-js-square"></i>
-          <span>JavaScript</span>
-          <span class="skill-badge">Favori</span>
+          <i class="fab fa-js-square tech-icon"></i>
+          <span class="skill-name">JavaScript</span>
+          <div class="skill-stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
         </div>
 
         <div class="skill-card">
-          <i class="fab fa-php"></i>
-          <span>PHP</span>
-          <span class="skill-badge">Favori</span>
+          <i class="fab fa-php tech-icon"></i>
+          <span class="skill-name">PHP</span>
+          <div class="skill-stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
         </div>
 
         <div class="skill-card">
-          <!-- C# icon via devicon CDN -->
-          <img
-            class="skill-icon"
-            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg"
-            alt="C#"
-          />
-          <span>C#</span>
-          <span class="skill-badge">Favori</span>
+          <img class="skill-icon"
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" />
+          <span class="skill-name">C#</span>
+          <div class="skill-stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+        </div>
+
+        <!-- Autres : 3 étoiles -->
+        <div class="skill-card">
+          <img class="skill-icon"
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" alt="Angular" />
+          <span class="skill-name">Angular</span>
+          <div class="skill-stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <i class="fas fa-star empty"></i><i class="fas fa-star empty"></i>
+          </div>
         </div>
 
         <div class="skill-card">
-          <img
-            class="skill-icon"
-            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg"
-            alt="Angular"
-          />
-          <span>Angular</span>
+          <img class="skill-icon"
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" alt="Laravel" />
+          <span class="skill-name">Laravel</span>
+          <div class="skill-stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <i class="fas fa-star"></i><i class="fas fa-star empty"></i>
+          </div>
         </div>
 
         <div class="skill-card">
-          <img
-            class="skill-icon"
-            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg"
-            alt="Laravel"
-          />
-          <span>Laravel</span>
+          <img class="skill-icon"
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" />
+          <span class="skill-name">TypeScript</span>
+          <div class="skill-stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <i class="fas fa-star empty"></i><i class="fas fa-star empty"></i>
+          </div>
         </div>
 
         <div class="skill-card">
-          <img
-            class="skill-icon"
-            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
-            alt="TypeScript"
-          />
-          <span>TypeScript</span>
+          <i class="fab fa-java tech-icon"></i>
+          <span class="skill-name">Java</span>
+          <div class="skill-stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <i class="fas fa-star empty"></i><i class="fas fa-star empty"></i>
+          </div>
         </div>
 
         <div class="skill-card">
-          <i class="fab fa-java"></i>
-          <span>Java</span>
-        </div>
-
-        <div class="skill-card">
-          <i class="fab fa-python"></i>
-          <span>Python</span>
+          <i class="fab fa-python tech-icon"></i>
+          <span class="skill-name">Python</span>
+          <div class="skill-stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <i class="fas fa-star empty"></i><i class="fas fa-star empty"></i>
+          </div>
         </div>
 
       </div>
@@ -388,7 +417,7 @@
 
     <footer class="footer">
       <div class="footer-text">
-        <p>Copyright &copy; 2025 par Azarya | Tous droits réservés</p>
+        <p>Copyright &copy; 2026 par Azarya | Tous droits réservés</p>
       </div>
 
       <div class="footer-iconTop">
