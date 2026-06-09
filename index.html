@@ -5,19 +5,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio - Azarya Noel</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <!-- Ajoutez cette ligne -->
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
-    <!-- SweetAlert2 CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <style>
+      /* ===== SKILLS SECTION ===== */
+      .skills {
+        padding: 10rem 9% 2rem;
+      }
 
-<!-- SweetAlert2 JS -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      .skills-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        justify-content: center;
+        margin-top: 4rem;
+      }
 
-<!-- EmailJS SDK -->
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+      .skill-card {
+        background: var(--bg-color);
+        border: 0.2rem solid var(--main-color);
+        border-radius: 1rem;
+        padding: 2rem 2.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        width: 14rem;
+        transition: 0.3s ease;
+        box-shadow: 0 0 0 transparent;
+        position: relative;
+        overflow: hidden;
+      }
 
+      .skill-card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: var(--main-color);
+        opacity: 0;
+        transition: 0.3s ease;
+        border-radius: 1rem;
+      }
+
+      .skill-card:hover::before {
+        opacity: 0.08;
+      }
+
+      .skill-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 0 20px var(--main-color);
+      }
+
+      .skill-card i {
+        font-size: 3.5rem;
+        color: var(--main-color);
+      }
+
+      .skill-card img.skill-icon {
+        width: 3.5rem;
+        height: 3.5rem;
+        object-fit: contain;
+        filter: grayscale(0.1);
+      }
+
+      .skill-card span {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--text-color);
+        text-align: center;
+      }
+
+      .skill-badge {
+        font-size: 1rem;
+        padding: 0.3rem 0.9rem;
+        background: var(--main-color);
+        color: #fff;
+        border-radius: 2rem;
+        font-weight: 500;
+      }
+    </style>
   </head>
   <body>
     <header class="header">
@@ -26,6 +96,7 @@
       <nav class="navbar">
         <a href="#home" class="active">Accueil</a>
         <a href="#about">À Propos</a>
+        <a href="#skills">Compétences</a>
         <a href="#services">Services</a>
         <a href="#portofolio">Portfolio</a>
         <a href="#contact">Contact</a>
@@ -76,6 +147,7 @@
       </div>
     </section>
 
+    <!-- ===== ABOUT ===== -->
     <section class="about" id="about">
       <div class="about-img">
         <img src="images/azarya.jpeg" alt="Azarya Noel" class="about-profile-img" />
@@ -86,11 +158,11 @@
         <h3>Développeur Web & Mobile</h3>
         <p>
           Je m'appelle <strong>RASOLOMAMPIONONA Azarya</strong>, étudiant en
-          troisième année de licence professionnelle en Génie Logiciel et Base
-          de données à l'École Nationale de l'Informatique de Fianarantsoa.
+          première année de <strong>Master Professionnel en Génie Logiciel et Base
+          de Données</strong> à l'École Nationale de l'Informatique de Fianarantsoa.
           <br /><br />
-          Passionné par le <strong>développement web et mobile</strong>, je maîtrise les langages
-          et frameworks tels que <strong>JavaScript, PHP, C#, React JS, Angular, Laravel , TypeScript, Java et Python</strong>.
+          Passionné par le <strong>développement web et mobile</strong>, je me spécialise
+          notamment dans <strong>React, Node.js, JavaScript, PHP et C#</strong>.
           <br /><br />
           Autodidacte et motivé, je suis constamment à la recherche de nouveaux défis
           pour améliorer mes compétences et créer des solutions innovantes.
@@ -99,6 +171,88 @@
       </div>
     </section>
 
+    <!-- ===== SKILLS ===== -->
+    <section class="skills" id="skills">
+      <h2 class="heading">Mes <span>Compétences</span></h2>
+
+      <div class="skills-container">
+
+        <div class="skill-card">
+          <i class="fab fa-react"></i>
+          <span>React JS</span>
+          <span class="skill-badge">Favori</span>
+        </div>
+
+        <div class="skill-card">
+          <i class="fab fa-node-js"></i>
+          <span>Node.js</span>
+          <span class="skill-badge">Favori</span>
+        </div>
+
+        <div class="skill-card">
+          <i class="fab fa-js-square"></i>
+          <span>JavaScript</span>
+          <span class="skill-badge">Favori</span>
+        </div>
+
+        <div class="skill-card">
+          <i class="fab fa-php"></i>
+          <span>PHP</span>
+          <span class="skill-badge">Favori</span>
+        </div>
+
+        <div class="skill-card">
+          <!-- C# icon via devicon CDN -->
+          <img
+            class="skill-icon"
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg"
+            alt="C#"
+          />
+          <span>C#</span>
+          <span class="skill-badge">Favori</span>
+        </div>
+
+        <div class="skill-card">
+          <img
+            class="skill-icon"
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg"
+            alt="Angular"
+          />
+          <span>Angular</span>
+        </div>
+
+        <div class="skill-card">
+          <img
+            class="skill-icon"
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg"
+            alt="Laravel"
+          />
+          <span>Laravel</span>
+        </div>
+
+        <div class="skill-card">
+          <img
+            class="skill-icon"
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+            alt="TypeScript"
+          />
+          <span>TypeScript</span>
+        </div>
+
+        <div class="skill-card">
+          <i class="fab fa-java"></i>
+          <span>Java</span>
+        </div>
+
+        <div class="skill-card">
+          <i class="fab fa-python"></i>
+          <span>Python</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
     <section class="services" id="services">
       <h2 class="heading">Mes <span>Services</span></h2>
 
@@ -136,6 +290,7 @@
       </div>
     </section>
 
+    <!-- ===== PORTFOLIO ===== -->
     <section class="portofolio" id="portofolio">
       <h2 class="heading">Derniers <span>Projets</span></h2>
 
@@ -187,6 +342,7 @@
       </div>
     </section>
 
+    <!-- ===== CONTACT ===== -->
     <section class="contact" id="contact">
       <h2 class="heading">Contactez <span>Moi !</span></h2>
 
